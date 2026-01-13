@@ -6,3 +6,5 @@ metadata:
 resources:
   - deployment.yaml
   - service.yaml
+  - namespace.yaml
+  - ingress.yaml
