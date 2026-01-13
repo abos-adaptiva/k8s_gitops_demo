@@ -1,0 +1,17 @@
+# clusters/my-cluster/tenant2-sync.yaml
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: tenant2-release
+  namespace: flux-system
+spec:
+  interval: 5m
+  path: "./apps" # Path to the folder containing the file above
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  postBuild:
+    substitute:
+      tenantGuid: "tenant2"
+      
