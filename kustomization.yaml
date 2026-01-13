@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: "./apps/tenant2" # Path to the folder containing the file above
+  path: "./apps" # Path to the folder containing the file above
   prune: true
   sourceRef:
     kind: GitRepository
