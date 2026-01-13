@@ -3,6 +3,9 @@ kind: "Kustomization"
 metadata:
   name: "tenant2-release"
   namespace: "flux-system"
+resources:
+  - deployment.yaml
+  - service.yaml
 spec:
   interval: "5m"
   prune: true
