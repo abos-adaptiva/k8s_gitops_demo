@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/limit-rps: '100'
+  name: webserver-ingress
+  namespace: ${tenantGuid}
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: ${tenantGuid}.adaptiva.cloud
+      http:
+        paths:
+          - backend:
+              service:
+                name: nginx-service 
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix

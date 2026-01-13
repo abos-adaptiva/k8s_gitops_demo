@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver-deployment
+  namespace: ${tenantGuid}
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1 # Specifies the number of desired pods
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.29.4 # Use a specific image version for consistency
+        ports:
+        - containerPort: 80
