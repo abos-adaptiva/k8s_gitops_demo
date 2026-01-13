@@ -6,12 +6,3 @@ metadata:
 resources:
   - deployment.yaml
   - service.yaml
-spec:
-  interval: "5m"
-  prune: true
-  sourceRef:
-    kind: "GitRepository"
-    name: "flux-system"
-  postBuild:
-    substitute:
-      tenantGuid: "tenant2"
